@@ -1,0 +1,19 @@
+<div class="eis">
+    <div id="dv-inc-grouup-form" class="eis bg-white dv-inc-group-form">
+      <form [formGroup]="igForm">
+          <table>
+              <tr></tr>
+              <tr>
+                <td class="frmlbl"><label class='f1"' for="txGroupName">Group Name</label></td>
+                <td><label class="ast">*</label></td>
+                <td><input formControlName="groupName" id="txGroupName" type="text"></td>
+              </tr>
+              <tr></tr>
+          </table>
+      </form>
+    </div>
+    <div class="button-action-bar">
+        <button (click)="save()">Save</button>
+        <button (click)="cancel()">Cancel</button>
+    </div>
+</div>

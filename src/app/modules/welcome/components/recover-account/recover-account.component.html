@@ -1,0 +1,109 @@
+<div class="">
+    <div id="dv-recover-account-wrapper" class="div-center-screen">
+      <div class="w3-container w3-padding-small w3-theme-d2">
+        <div class="w3-left">
+          Create Account Manager User
+        </div>
+      </div>
+      <div id="dv-recover-account">
+        <div id="dv-left">
+                <label class="frmlbl">To create a new Account Manager user account:</label> 
+                <div class="dv-mt">
+                  <label class="frmlbl">NOTE: The Account Manager is unique for each database.  If there are multiple
+                        databases, you will need to perform this process for each database.
+                  </label>
+                </div>
+                <hr />  
+               </div>
+                <div >
+                  <label style="padding-right:10px;" class="frmlbl">1. Select a Database</label>
+                  <select id="cbDb" style="width:220px; height:24px;"></select>
+                  <div class="dv-mt">
+                    <label class="frmlbl"> 
+                        2. Call the Help Desk and provide them with the following code:
+                    </label>
+                  </div>
+                  <input id="txCode" name="txcode" type="text" style="width:260px; margin-left:20px;"/>
+                  <button style="margin-left:5px;" class="w3-small w3-padding-small" >Copy Code to Clipboard</button>
+                  <div class="dv-mt">
+                    <label class="frmlbl"> 
+                        3. Enter the access key the Help Desk provided and click the Authenticate button:
+                    </label> 
+                  </div>
+                  <input id="txKey" name="txkey" type="text" style="width:260px; margin-left:20px;"/>
+                  <button style="margin-left:5px;" class="w3-small w3-padding-small">Authenticate</button>
+                  <div class="dv-mt">
+                    <label class="frmlbl"> 
+                        4. After authenticating the access key, enter the account data and click save to create the new account.
+                    </label> 
+                  </div>
+                  <hr />  
+                </div>
+          <table>
+            <tr>
+              <td>
+                 <label>Database Name MUST begin with an Alpha character.</label>
+                 <br/>
+                 <br/>
+                 <table>
+                    <tr>
+                      <td class="frmlbl"><label>User Name</label></td>
+            <td><label class="ast">*</label></td>
+            <td>
+              <input id="txUserName" name="txUserName" type="text" style="width:130px;"/>
+            </td>
+                    </tr>
+                    <tr>
+                      <td class="frmlbl"><label>First Name</label></td>
+            <td><label class="ast">*</label></td>
+            <td>
+              <input id="txFirstName" name="txFirstName" type="text" style="width:130px;"/>
+            </td>
+                    </tr>
+                    <tr>
+                      <td class="frmlbl"><label>Last Name</label></td>
+            <td><label class="ast">*</label></td>
+            <td>
+              <input id="txLastName" name="txLastName" type="text" style="width:130px;"/>
+            </td>
+                    </tr>
+                    <tr>
+                      <td class="frmlbl" ><label>Unit ID</label></td>
+                      <td><label class="ast">*</label></td>
+                      <td>
+                        <select id="cbUnit" style="width:150px; height:24px;"></select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="frmlbl"><label>Password</label></td>
+            <td><label class="ast">*</label></td>
+            <td>
+              <input id="txPassword" name="txPassword" type="text" style="width:130px;"/>
+            </td>
+                    </tr>
+                    <tr>
+                      <td class="frmlbl"><label>Confirm Password</label></td>
+            <td><label class="ast">*</label></td>
+            <td>
+              <input id="txConPassword" name="txConPassword" type="text" style="width:130px;"/>
+            </td>
+                    </tr>
+                 </table>
+              </td>
+              <td>
+                <img src="assets/images/logots.png">
+              </td>
+            </tr>
+          </table>
+          </div>
+      <div id="dv-recover-account-btn-bar">
+         <div class="w3-center">
+          <div class="w3-bar">
+            <button class="w3-small w3-padding-small">Save</button>
+            <button class="w3-small w3-padding-small" routerLink="/welcome/login">Cancel</button>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+  

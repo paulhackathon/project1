@@ -1,0 +1,90 @@
+<div class="eis">
+  <form>
+    <table>
+      <tr>
+        <td>
+          <!-- coloum 1-->
+          <table>
+            <tr>
+              <td class="frmlbl"><label class='f1"'>Event Type</label></td>
+              <td><label class="ast">*</label></td>
+              <td>
+                <app-eis-dropdown [dropdownData]="this.eventType"></app-eis-dropdown>
+              </td>
+            </tr>
+            <tr>
+              <td class="frmlbl"><label class='f1"'>Incident Name</label></td>
+              <td><label class="ast">*</label></td>
+              <td>
+                <input>
+              </td>
+            </tr>
+            <tr>
+              <td class="frmlbl"><label class='f1"'>Incident Number</label></td>
+              <td><label class="ast">*</label></td>
+              <td>
+                <div id="incidentNumTable" style="border: 1px solid black">
+									<tr>
+										<td class="incTable">Contry code <label class="ast">*</label></td>
+										<td><input placeholder="US"></td></tr>
+									<tr>
+										<td class="incTable">Unit ID <label class="ast">*</label></td>
+										<td><app-eis-dropdown [dropdownData]="this.eventType"></app-eis-dropdown></td></tr>
+									<tr>
+										<td class="incTable">Number <label class="ast">*</label></td>
+										<td><input></td></tr>
+									<tr>
+										<td class="incTable"></td>
+										<td>US --</td></tr>
+									
+                </div>
+              </td>
+            </tr>
+          </table>
+      <tr>
+        <td class="frmlbl"><label class='f1"'>Incident Jurisdiction</label></td>
+        <td><label class="ast">*</label></td>
+        <td>
+          <app-eis-dropdown [dropdownData]="this.incJur"></app-eis-dropdown>
+        </td>
+      </tr>
+      </td>
+      <td>
+        <!-- coloum 2-->
+        <table>
+          <tr>
+            <td class="frmlbl"><label class='f1"'>State</label></td>
+            <td><label class="ast">*</label></td>
+            <td>
+              <app-eis-dropdown [dropdownData]="this.states"></app-eis-dropdown>
+            </td>
+          </tr>
+          <tr>
+            <td class="frmlbl"><label class='f1"'>Start Date</label></td>
+            <td><label class="ast">*</label></td>
+            <td>
+              <input id="startDate" name="startDate" type="date" (keydown)="setDate($event)">
+              <!-- <app-eis-datepicker></app-eis-datepicker> -->
+            </td>
+          </tr>
+          <tr>
+            <td class="frmlbl"><label class='f1"'>End Date</label></td>
+            <td><label class="ast"></label></td>
+            <td>
+              <input id="endDate" name="startDate" type="date" (keydown)="setDate($event)">
+              <!-- <app-eis-datepicker></app-eis-datepicker> -->
+            </td>
+          </tr>
+          <tr>
+            <td class="frmlbl"><label class='f1"'>Description</label></td>
+            <td><label class="ast"></label></td>
+            <td>
+              <input>
+            </td>
+          </tr>
+        </table>
+      </td>
+      </tr>
+    </table>
+  </form>
+</div>

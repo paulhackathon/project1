@@ -1,0 +1,46 @@
+<div id="dv-top-bar">
+	<div id="dv-top-bar-left" class="w3-left">
+		<app-grid-icon-bar
+			[showCustomize]="true"
+			[showExpandRetract]="true"
+			(customizeEvent)="this.customizeColumnsEvent()"
+			(refreshEvent)="this.refreshGridEvent()"
+			(filterEvent)="this.clearFilterEvent()"
+			(expandRetractEvent)="this.expandRetractEvent()">
+		</app-grid-icon-bar>
+	</div>
+	<div id="dv-top-bar-right" class="w3-right">
+		<button [class]="buttonClass('add')" (click)="addIncident()">Add Incident</button>
+		<button [class]="buttonClass('edit')" (click)="editIncident()">Edit Incident</button>
+		<button [class]="buttonClass('delete')" (click)="deleteIncident()">Delete Incident</button>
+		<button class="w3-small" routerLink="/incidents/rossimport">ROSS Import</button>
+		<button class="w3-small" routerLink="/incidents/finexp">Financial Export</button>
+		<button class="w3-small" routerLink="/incidents/datatransfer">Data Transfer</button>
+	</div>
+</div>
+<div class="split-example">
+	<as-split direction="horizontal">
+		<as-split-area id="incSplitLeft" #incSplitLeft [size]="splitAreaLeftSize">
+			<div id="dv-inc-grid">
+				<app-eis-grid #incGrid 
+					[treeViewMode]="true"
+					[columnDefs]="this.gridColumnDefs" 
+					[rowData]="incidentGridList"
+					(rowSelectEvent)="this.onSelectIncidentRow($event)">
+				</app-eis-grid>
+			</div>
+		</as-split-area> 
+		<as-split-area id="incSplitRight" [size]="splitAreaRightSize">
+			<div id="dv-inc-view" class="eis">
+				<app-inc-view-incidents 
+					#incViewIncidents 
+					*ngIf="this.viewMode === 'INCIDENT'">
+				</app-inc-view-incidents>
+				<app-inc-view-incident-group 
+					#incViewIncidentGroup 
+					*ngIf="this.viewMode === 'INCIDENTGROUP'">
+				</app-inc-view-incident-group>
+			</div>
+		</as-split-area>
+	</as-split>
+</div>

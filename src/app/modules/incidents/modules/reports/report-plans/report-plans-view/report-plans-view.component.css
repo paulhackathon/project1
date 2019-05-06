@@ -1,0 +1,22 @@
+#dv-plans-rpt-left {
+    min-width: 200px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid darkgray;
+}
+#dv-plans-rpt-left button {
+    margin: 2px;
+    text-align: center;
+    width: 250px;
+}
+.lbl-hdr {
+	font: 12px Helvetica,Arial,sans-serif;
+    font-weight: bold;
+}
+#dv-plans-rpt-rht {
+    min-width: 800px;
+    min-height: 500px;
+    margin: 10px;
+    padding: 10px;
+    /*border: 1px solid darkgray;*/
+}

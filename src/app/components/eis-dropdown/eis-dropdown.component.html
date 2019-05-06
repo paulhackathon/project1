@@ -1,0 +1,22 @@
+<div class="input-dropdown">
+  <input class="input-dropdown-field" #eisInput 
+    (blur)="inputBlur($event)" 
+    (focus)="inputFocus()" 
+    (input)="inputChange(eisInput.value)"
+    (keydown)="keyboardEvent($event)"
+    [value]="selectedValue.code"
+    [id]="this.id"
+    [disabled]="dropdownDisabled"
+    [style.width.px]="this.width"
+    style="padding-left: 1px;">
+  <br>
+  <cdk-virtual-scroll-viewport *ngIf="dropdownVisible" itemSize="30" class="dropdown-viewport" >
+    <div class="dropdown-item" #dropdownViewport *cdkVirtualFor="let data of dropdownData; let index = index, let even = even"
+      [class.input-active]="index==this.activeItem"
+      [class.color-alternate]="even"
+      (mousedown)="selectItem(data, index)">
+      <div class="dropdown-code">{{data.code}}</div>
+      <div class="dropdown-desc">{{data.desc}}</div>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>

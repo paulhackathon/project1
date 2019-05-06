@@ -1,0 +1,9 @@
+<!-- <input type="text" 
+  pattern = "[0-9]"
+  (blur)="this.onBlur($event)"
+  (keypress)="keyboardEvent($event)"
+  [value]="this.formattedValue | phonepipe"> -->
+
+  <input type="tel" maxlength="10"
+  (keyup)="onKeyup($event)"
+  [value]="this.formattedValue | phonepipe">

@@ -1,0 +1,15 @@
+#dv-all-res-report {
+}
+.pl-10 {
+    padding-left: 10px;
+}
+.bx-hdr {
+	height:30px;
+    padding: 5px;
+    background-color: #B7C6CD;
+}
+.bx-hdr-dv {
+	border: 1px solid darkgray;
+	padding: 5px;
+	height: 250px;
+}

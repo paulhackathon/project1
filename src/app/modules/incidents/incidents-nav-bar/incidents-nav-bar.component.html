@@ -1,0 +1,45 @@
+<div id="dv-incidents-nav-bar" class="btn-group-menu">
+  <button (click)="tabClick('/incidents','', '')" [class]="getStyle('/incidents/inc','')">Incidents</button>	
+  <button (click)="tabClick('/incidents/resources','checkin', 'resview')" [class]="getStyle('/incidents/resources', 'checkin')">Check-In</button>	
+  <button (click)="tabClick('/incidents/resources', 'demob', 'resview')" [class]="getStyle('/incidents/resources', 'demob')">Demob</button>	
+  <button (click)="tabClick('/incidents/resources', 'time', 'timeview')" [class]="getStyle('/incidents/resources', 'time')">Time</button>	
+  <button (click)="tabClick('/incidents/resources', 'cost', 'costview')" [class]="getStyle('/incidents/resources', 'cost')">Cost</button>	
+  <button [class]="getStyle('/incidents/iap','')">IAP</button>
+  <button [class]="getStyle('/incidents/training','')">Training</button>
+  <button (click)="tabClick('/incidents/reports/plans','', '')" [class]="getStyle('/incidents/reports','')">Reports</button>
+  <div id="dv-inc-nav-bar-right" class="w3-right">
+    <form [formGroup]="this.frm">
+    <div *ngIf="this.incidentSelectorService.selectedGridRow.incidentId > 0">
+      <table>
+        <tr>
+          <td><label>Selected Incident:</label></td>
+          <td><label><strong>{{ this.incidentSelectorService.selectedGridRow.name }}</strong></label></td>
+          <td style="width: 10px;"></td>
+          <td><label>{{ this.incidentSelectorService.selectedGridRow.incidentNumber }}</label></td>
+        </tr>
+      </table>
+    </div>
+    <div *ngIf="this.incidentSelectorService.selectedGridRow.incidentGroupId > 0">
+        <table>
+          <tr>
+            <td><label>Selected Group:</label></td>
+            <td><label><strong>{{ this.incidentSelectorService.selectedGridRow.name }}</strong></label></td>
+            <td style="width: 10px;"></td>
+            <td><input formControlName="manageAsGroup" id="chkManageAsGroup" type="checkbox" style="margin-top:3px;"
+                (change)="this.onChangeManageAsGroup($event)"></td>
+            <td style="width: 2px;"></td>
+            <td><label>Manage as Group</label></td>
+            <td *ngIf="this.showIncidentDropdown === true" style="width: 10px;"></td>
+            <td *ngIf="this.showIncidentDropdown === true">
+              <select formControlName="selectedIncident" style="width: 200px;"
+               (change)="this.onChangeSelectIncident($event)">
+                  <option *ngFor="let v of this.incidentSelectorService.selectedGridRow.children" 
+                    [ngValue]="v.incidentId" >{{ v['name'] }}</option>
+               </select>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </form>
+  </div>
+</div>

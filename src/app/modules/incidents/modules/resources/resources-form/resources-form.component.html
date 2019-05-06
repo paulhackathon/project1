@@ -1,0 +1,406 @@
+<div class="eis" style="background-color: white;">
+	<div id="dv-res-form" class="eis bg-white">
+		<form [formGroup]="_resourceForm">
+			<table>
+				<tr>
+					<td>
+						<table>
+							<tr>
+								<td class="frmlbl"><label class="f1" style="width: 40px;word-break: break-all;">Select Incident</label></td>
+								<td><label class="ast">*</label></td>
+								<td>
+									<select id="cbInc" style="width:140px;"></select>
+								</td>
+							</tr>
+							<tr>
+								<td class="frmlbl"><label>Accounting Code</label></td>
+								<td><label class="ast"></label></td>
+								<td>
+									<select id="cbAcctCode" style="width:140px;"></select>
+								</td>
+							</tr>
+							<tr>
+								<td class="frmlbl" ><label>Request Number</label></td>
+								<td><label class="ast"></label></td>
+								<td>
+									<input id="txRNum" name="txRNum" type="text" style="width:80px;"/>
+								</td>
+							</tr>
+							<tr>
+								<td class="frmlbl"><label>Status</label></td>
+								<td><label class="ast">*</label></td>
+								<td>
+									<select id="cbStatus" style="width:40px;"></select>
+								</td>
+							</tr>
+							<tr>
+								<td class="frmlbl"><label>Person</label></td>
+								<td><label class="ast"></label></td>
+								<td>
+                                  <input formControlName="person" id="ckPerson" type="checkbox"/>
+                                  {{ this._resourceForm.get('person').value }}
+								</td>
+							</tr>
+							<tr>
+								<td class="frmlbl"><label>Invoice OF-286</label></td>
+								<td><label class="ast"></label></td>
+								<td>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td class="vtop">
+						<table>
+							<tr *ngIf="!this._resourceForm.get('person').value">
+								<td class="frmlbl"><label>Resource Name</label></td>
+								<td><label class="ast">*</label></td>
+								<td>
+									<textarea id="txResName" name="txResName" style="width:200px;height:50px;"></textarea>
+								</td>
+							</tr>
+							<tr *ngIf="this._resourceForm.get('person').value">
+								<td class="frmlbl"><label>Last Name</label></td>
+								<td><label class="ast">*</label></td>
+								<td>
+									<input id="txLName" name="txLName" type="text" style="width:200px;"/>
+								</td>
+							</tr>
+							<tr *ngIf="this._resourceForm.get('person').value">
+								<td class="frmlbl"><label>First Name</label></td>
+								<td><label class="ast">*</label></td>
+								<td>
+									<input id="txRName" name="txRName" type="text" style="width:200px;"/>
+								</td>
+							</tr>
+							<tr>
+								<td class="frmlbl"><label>Cell Phone #</label></td>
+								<td><label class="ast"></label></td>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<td class="frmlbl"><label>Leader Type</label></td>
+								<td><label class="ast"></label></td>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<td class="frmlbl"><label>Item Code</label></td>
+								<td><label class="ast">*</label></td>
+								<td>
+									<select id="cbItemCode" style="width:100px;"></select>
+								</td>
+							</tr>
+							<tr>
+								<td class="frmlbl"><label>Item Name</label></td>
+								<td><label class="ast"></label></td>
+								<td>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td class="vtop">
+						<table>
+							<tr>
+								<td class="frmlbl"><label>Unit ID</label></td>
+								<td><label class="ast">*</label></td>
+								<td>
+									<select id="cbUnit" style="width:100px;"></select>
+								</td>
+							</tr>
+							<tr>
+								<td class="frmlbl"><label>Agency</label></td>
+								<td><label class="ast"></label></td>
+								<td>
+									<select id="cbAgency" style="width:100px;"></select>
+								</td>
+							</tr>
+							<tr>
+								<td class="frmlbl"><label>Mobilization Date</label></td>
+								<td><label class="ast"></label></td>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<td class="frmlbl"><label>Check-In Date</label></td>
+								<td><label class="ast"></label></td>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<td class="frmlbl"><label>Check-In Time</label></td>
+								<td><label class="ast"></label></td>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<td class="frmlbl"><label>Actual Release Date</label></td>
+								<td><label class="ast"></label></td>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<td class="frmlbl"><label>Actual Release Time</label></td>
+								<td><label class="ast"></label></td>
+								<td>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+            <div class="dv-module-sub-nav-bar">
+              <div class="btn-group-sub-menu">
+                <button (click)="dataTabSelect('checkin')">Check-In Data</button>	
+                <button (click)="dataTabSelect('demob')">Demob Data</button>
+                <button (click)="dataTabSelect('airtravel')">Air Travel Data</button>	
+                <button (click)="dataTabSelect('time')">Time Data</button>	
+                <button (click)="dataTabSelect('cost')">Cost Data</button>	
+              </div>
+            </div>
+            <div [class]="getActiveTab('checkin')">
+						<table>
+                            <tr>
+               					<td class="vtop">
+                                  <table>
+                                    <tr>
+                                      <td class="frmlbl"><label>First Work Day</label></td>
+                                      <td><label class="ast"></label></td>
+                                      <td>
+                                        <input type="text" style="width:100px;"/>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="frmlbl"><label>Length of Assignment</label></td>
+                                      <td><label class="ast"></label></td>
+                                      <td>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="frmlbl"><label>Demob Date</label></td>
+                                      <td><label class="ast"></label></td>
+                                      <td>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="frmlbl"><label>Days Left</label></td>
+                                      <td><label class="ast"></label></td>
+                                      <td>
+                                      </td>
+                                    </tr>
+                                      <tr>
+                                        <td class="frmlbl"><label>Number of Personnel</label></td>
+                                        <td><label class="ast"></label></td>
+                                        <td>
+                                        </td>
+                                      </tr>
+                                  </table>
+                                </td>
+               					<td class="vtop">
+                                    <table>
+                                      <tr>
+                                        <td class="frmlbl"><label>Demob City</label></td>
+                                        <td><label class="ast"></label></td>
+                                        <td>
+                                          <input id="txDCity" name="txDCity" type="text" style="width:200px;"/>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="frmlbl"><label>Demob State</label></td>
+                                        <td><label class="ast"></label></td>
+                                        <td>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="frmlbl"><label>Mobilization Travel Method</label></td>
+                                        <td><label class="ast"></label></td>
+                                        <td>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="frmlbl"><label>Mobilization Jetport</label></td>
+                                        <td><label class="ast"></label></td>
+                                        <td>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                </td>
+               					<td class="vtop">
+                                    <table>
+                                      <tr>
+                                        <td class="frmlbl"><label>Other 1</label></td>
+                                        <td><label class="ast"></label></td>
+                                        <td>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="frmlbl"><label>Other 2</label></td>
+                                        <td><label class="ast"></label></td>
+                                        <td>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="frmlbl"><label>Other 3</label></td>
+                                        <td><label class="ast"></label></td>
+                                        <td>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                      </table>
+                      <div class="dv-border">
+                        <table>
+                          <tr>
+                                        <td class="frmlbl"><label>Check-In Remarks</label></td>
+                                        <td><label class="ast"></label></td>
+                                        <td>
+                                          <textarea></textarea>
+                                        </td>
+                          </tr>
+                        </table>
+                      </div>
+            </div>
+            <div [class]="getActiveTab('demob')">
+              <table>
+                <tr>
+                  <td>
+                    <div>
+                      <label style="font-weight: bold;">Tentative Demob</label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><!-- tent demob col 1-->
+                    <table>
+                      <tr>
+                        <td class="frmlbl"><label>Demob Travel Method</label></td>
+                        <td><label class="ast"></label></td>
+                        <td>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="frmlbl"><label>Rental Location</label></td>
+                        <td><label class="ast"></label></td>
+                        <td>
+  						  <input id="txRenLoc" name="txRenLoc" type="text" style="width:200px;"/>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td><!-- tent demob col 2-->
+                    <table>
+                      <tr>
+                        <td class="frmlbl"><label>Tentative Release Date</label></td>
+                        <td><label class="ast"></label></td>
+                        <td>
+  						  <input id="txTentRelDate" name="txTentRelDate" type="text" style="width:80px;"/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="frmlbl"><label>Tentative Release Time</label></td>
+                        <td><label class="ast"></label></td>
+                        <td>
+  						  <input id="txTentRelTime" name="txTentRelTime" type="text" style="width:80px;"/>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td><!-- tent demob col 3-->
+                    <table>
+                      <tr>
+                        <td class="frmlbl"><label>Available for Reassignment</label></td>
+                        <td><label class="ast"></label></td>
+                        <td>
+                          <input id="ckAvailReassign" type="checkbox"/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="frmlbl"><label>Checkout Form Printed</label></td>
+                        <td><label class="ast"></label></td>
+                        <td>
+                          <input id="ckFrmPrinted" type="checkbox"/>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td><!-- tent demob col 4-->
+                    <table>
+                      <tr>
+                        <td class="frmlbl"><label>Dispatch Notified</label></td>
+                        <td><label class="ast"></label></td>
+                        <td>
+                          <input id="ckDispNot" type="checkbox"/>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+                        <table>
+                          <tr>
+                                        <td class="frmlbl"><label>Tentative Demob Remarks</label></td>
+                                        <td><label class="ast"></label></td>
+                                        <td>
+                                          <textarea style="width: 400px;"></textarea>
+                                        </td>
+                          </tr>
+                        </table>
+              <table>
+                <tr>
+                  <td>
+                      <div>
+                        <label style="font-weight: bold;">Actual Demob</label>
+                        <table>
+                          <tr>
+                            <td class="frmlbl"><label>Estimated Date of Arrival</label></td>
+                            <td><label class="ast"></label></td>
+                            <td>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="frmlbl"><label>Estimated Time of Arrival</label></td>
+                            <td><label class="ast"></label></td>
+                            <td>
+                              <input id="txEstArrivTime" name="txEstArrivTime" type="text" style="width:200px;"/>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="frmlbl"><label>Dispatch Notified</label></td>
+                            <td><label class="ast"></label></td>
+                            <td>
+                              <input id="ckDispNot" type="checkbox"/>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="frmlbl"><label>Rest Overnight</label></td>
+                            <td><label class="ast"></label></td>
+                            <td>
+                              <input id="ckDispNot" type="checkbox"/>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                  </td>
+                </tr>
+              </table>
+                        <table>
+                          <tr>
+                                        <td class="frmlbl"><label>Actual Demob Remarks</label></td>
+                                        <td><label class="ast"></label></td>
+                                        <td>
+                                          <textarea style="width: 400px;"></textarea>
+                                        </td>
+                          </tr>
+                        </table>
+            </div>
+            <div [class]="getActiveTab('time')">
+              <div>
+                <label>Actual Demob</label>
+              </div>
+            </div>
+            <div [class]="getActiveTab('cost')">
+            </div>
+        </form>
+	</div>
+</div>

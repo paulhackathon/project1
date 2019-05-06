@@ -1,0 +1,65 @@
+<div class="main-div">
+  {{ currentSelectedIncidentSelectorVo.name }}
+  <div id="dv-resource-filter">
+    <input type="radio" name="resourcefilter"><label>All</label>
+    <input type="radio" name="resourcefilter"><label>Aircarft</label>
+    <input type="radio" name="resourcefilter"><label>Overhead</label>
+    <input type="radio" name="resourcefilter"><label>Crews</label>
+    <input type="radio" name="resourcefilter"><label>Equipment</label>
+    <input type="radio" name="resourcefilter"><label>All Personnel</label>
+    <input type="radio" name="resourcefilter"><label>All Non-Personnel</label>
+  </div>
+  <div id="dv-top-bar">
+    <div id="dv-top-bar-left" class="w3-left">
+      <img src="assets/images/action-conf-column.png">
+      <img src="assets/images/action-refresh.png" style="padding-top:1px;">
+      <img src="assets/images/filter-delete-icon.png">
+      <img src="assets/images/expand_retract.png">
+    </div>
+    <div id="dv-top-bar-right" class="w3-right">
+      <button class="w3-small">Add Resource</button>
+      <button class="w3-small">Edit Resource</button>
+      <button class="w3-small">Delete Resource</button>
+      <button *ngIf="this.incidentSelectorService.selectedSubTab === 'demob' || this.incidentSelectorService.selectedSubTab === 'checkin'" class="w3-small">Quick Stats</button>
+      <button *ngIf="this.incidentSelectorService.selectedSubTab === 'time'" class="w3-small">Post Time</button>
+      <button *ngIf="this.incidentSelectorService.selectedSubTab === 'time'" class="w3-small">Post Adjustments</button>
+      <button *ngIf="this.incidentSelectorService.selectedSubTab === 'time'" class="w3-small">Invoices</button>
+      <button *ngIf="this.incidentSelectorService.selectedSubTab === 'cost'" class="w3-small">View Costs</button>
+    </div>
+  </div>
+  <div  *ngIf="this.incidentSelectorService.selectedSubTab === 'checkin'" class="dv-top-bar">
+    <div id="dv-top-bar-left" class="w3-left">
+    </div>
+    <div id="dv-top-bar-right" class="w3-right">
+      <button class="w3-small h22">Group Check-In</button>
+    </div>
+  </div>
+  <div *ngIf="this.incidentSelectorService.selectedSubTab === 'demob'" class="dv-top-bar">
+    <div id="dv-top-bar-left" class="w3-left">
+    </div>
+    <div id="dv-top-bar-right" class="w3-right">
+      <button class="w3-small h22">Group Pending</button>
+      <button class="w3-small h22">Group Demob</button>
+      <button class="w3-small h22">Group Check-In</button>
+      <button class="w3-small h22">Tentative Poster</button>
+      <button class="w3-small h22">Available For Release</button>
+      <button class="w3-small h22">Air Travel Request</button>
+      <button class="w3-small h22">Checkout</button>
+      <button class="w3-small h22">Actual Demob</button>
+      <button class="w3-small h22">Ground Support</button>
+    </div>
+  </div>
+  <div class="split-example">
+    <as-split direction="horizontal">
+      <as-split-area size="30">
+			<div id="dv-resource-grid">
+              <app-resource-grid></app-resource-grid>
+			</div>
+      </as-split-area>
+      <as-split-area size="70" style="background-color: white;">
+        <app-resources-form *ngIf="this.incidentSelectorService.resourcesMode === 'resview'"></app-resources-form>
+        <app-resources-time *ngIf="this.incidentSelectorService.resourcesMode === 'timeview'"></app-resources-time>
+      </as-split-area>
+    </as-split>
+  </div>
+</div>
